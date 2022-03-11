@@ -1,0 +1,50 @@
+//swap node
+  public void sort(int order){
+      for(int round = 1 ; round <= size ; round++){
+          for(int index = 0 ; index < size-1 ; index++){
+              LinkedNode a = nodeAt(index);
+              LinkedNode b = nodeAt(index+1);
+              if((Integer)a.element > (Integer)b.element && order >= 0){
+                  swap(a,b); 
+              }
+              else if((Integer)a.element < (Integer)b.element && order < 0){
+                  swap(a,b);
+              }
+          }
+      }
+      
+  }
+  
+  private void swap(LinkedNode a, LinkedNode b){
+      LinkedNode front = a.prev;
+      LinkedNode last = b.next;
+      b.prev = front;
+      b.next = a;
+      front.next = b;
+      a.prev = b;
+      a.next = last;
+      last.prev = a;
+
+  }
+  
+ //swap element
+  public void sort2(int order){
+      for(int round = 1 ; round <= size ; round++){
+          for(int index = 0 ; index < size-1 ; index++){
+              LinkedNode a = nodeAt(index);
+              LinkedNode b = nodeAt(index+1);
+              Object x;
+              if((Integer)a.element > (Integer)b.element && order >= 0){
+                  x = a.element;
+                  a.element = b.element;
+                  b.element = x;
+              }
+              else if((Integer)a.element < (Integer)b.element && order < 0){
+                  x = a.element;
+                  a.element = b.element;
+                  b.element = x;
+              }
+          }
+      }
+      
+  }
